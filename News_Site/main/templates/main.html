@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+    <h1>Wellcome in News Site</h1>
+    <hr>
+    <a href="/info"><h2>Info</h2></a>
+    <hr>
+    {% for i in category %}
+    <a href="category/{{ i.id }} "><h2>{{ i.category_name }}</h2></a>
+    {% endfor %}
+    <hr>
+    <a href="/articles"><h2>View articles</h2></a>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Articles</title>
+</head>
+<body>
+    <h1>All articles</h1>
+    <hr>
+    {% for i in article %}
+    <h3>{{ i.article_data }}</h3>
+    <a href="/articles/{{ i.id }}"><h2>{{ i.article_name }}</h2></a>
+    <img src="{{ i.article_image }} " alt="">
+    {% endfor %}
+    <br><br>
+    <a href="/"><h2>Back</h2></a>
+</body>
+</html>
