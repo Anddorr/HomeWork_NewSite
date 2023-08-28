@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add-article</title>
+</head>
+<body>
+    <h1>Write info about new article</h1>
+    <hr>
+    <form action="/post_article" method="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="name" name="article_name"><br>
+        <br>
+        <select name="article_category" >
+            {% for i in category %}
+            <option>{{ i.category_name }}</option>
+            {% endfor %}
+        </select><br>
+        <br>
+        <input type="text" placeholder="info" name="article_info"><br>
+        <br>
+        <button type="submit"><h3>Add</h3></button>
+    </form>
+</body>
+</html>

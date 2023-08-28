@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit-article</title>
+</head>
+<body>
+    <h1>Edit article</h1>
+    <hr>
+    <form action="/post_edit_article/{{ article_id }}" method="post">
+        {% csrf_token %}
+        <h3>To leave the old write: Old</h3>
+        <input type="text" placeholder="name" name="new_article_name"><br>
+        <br>
+        <select name="article_category" >
+            {% for i in category %}
+            <option>{{ i.category_name }}</option>
+            {% endfor %}
+        </select><br>
+        <br>
+        <input type="text" placeholder="info" name="new_article_info"><br>
+        <br>
+        <button type="submit"><h3>Edit</h3></button>
+    </form>
+</body>
+</html>

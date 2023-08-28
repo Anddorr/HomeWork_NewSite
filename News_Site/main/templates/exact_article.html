@@ -6,10 +6,26 @@
 </head>
 <body>
     <h1>{{ article.article_name }} - {{ article.article_data }}</h1>
-    <h2>{{ article.article_category }}</h2>
+    <hr>
+    <h2>{{ article.article_category }}:</h2>
     <h3>{{ article.article_info }}</h3>
-    <img src="{{ article.article_image }}" alt="{{ article.article_name }}">
-    <a href="/"></a>
+    <img src="{{ article.article_image }}" alt="">
+    <hr>
+    <form action="/write-comment/{{ article.id }}" method="post" name="article">
+        {% csrf_token %}
+        <button type="submit">
+            <h3>Post comment</h3>
+        </button>
+    </form>
+    {% if user.is_superuser %}
+    <a href="/edit_article/{{ article.id }}"><h2>Edit</h2></a>
+    <a href="/delete_article/{{ article.id }}"><h2>Delete</h2></a>
+    {% endif %}
+    {% for i in comment %}
+    <hr>
+    <h4>{{ i.comment_username }} - {{ i.comment_data }}</h4>
+    <h5>{{ i.comment_info }}</h5>
+    {% endfor %}
     <br><br>
     <a href="/"><h2>Back</h2></a>
 </body>

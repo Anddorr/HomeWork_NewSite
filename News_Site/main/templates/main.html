@@ -5,7 +5,12 @@
     <title>Main</title>
 </head>
 <body>
-    <h1>Wellcome in News Site</h1>
+    <h1>Wellcome in News Site </h1>
+    <hr>
+    <form action="/search" method="POST">
+	    {% csrf_token %}
+        <input type="text" placeholder="Search" name="search_article" />
+    </form>
     <hr>
     <a href="/info"><h2>Info</h2></a>
     <hr>
@@ -14,5 +19,15 @@
     {% endfor %}
     <hr>
     <a href="/articles"><h2>View articles</h2></a>
+    <hr>
+    {% if user.is_authenticated %}
+        {% if user.is_superuser %}
+        <a href="/add_article"><h2>Add article</h2></a>
+        {% endif %}
+    <a href="/accounts/logout/"><h2>Logout</h2></a>
+    {% else %}
+    <a href="/accounts/login/"><h2>Login</h2></a>
+    <a href="/register"><h2>Register</h2></a>
+    {% endif %}
 </body>
 </html>

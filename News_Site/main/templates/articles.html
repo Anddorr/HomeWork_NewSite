@@ -10,7 +10,7 @@
     {% for i in article %}
     <h3>{{ i.article_data }}</h3>
     <a href="/articles/{{ i.id }}"><h2>{{ i.article_name }}</h2></a>
-    <img src="{{ i.article_image }} " alt="">
+    <img src="{{ i.article_image }}" alt="">
     {% endfor %}
     <br><br>
     <a href="/"><h2>Back</h2></a>
